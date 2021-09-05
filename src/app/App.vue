@@ -30,11 +30,19 @@
       >
       Inicio
       </v-btn>
+
       <v-btn
         text
         to="/about"
       >
       Sobre nosotros
+      </v-btn>
+      
+      <v-btn
+        text
+        to="/prueba"
+      >
+      Prueba
       </v-btn>
 
       <v-spacer></v-spacer>
