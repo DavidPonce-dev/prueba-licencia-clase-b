@@ -2,7 +2,7 @@
 export default {
   data: () => ({
     preguntas: [
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5,
+      {respondida:false}, {respondida:true}, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5,
       6, 7, 8, 9, 0, 1, 2, 3, 4, 5,
     ],
   }),
@@ -14,15 +14,15 @@ export default {
     <v-col cols="3">
       <v-card class="mt-2" height="calc( 100vh - 85px )">
         <h3 class="text-center py-5">Lista de preguntas</h3>
-        <v-card-text>
+        <v-card-text class="text-center">
           <v-btn
             v-for="(pregunta, indice) of preguntas"
             :key="indice"
             elevation="2"
             color="info"
             class="mx-1 my-1"
-            outlined
-            icon
+            :outlined='!pregunta.respondida'
+            fab small
             >{{ indice + 1 }}</v-btn
           >
         </v-card-text>
@@ -50,22 +50,22 @@ export default {
           />
         </div>
 
-        <div class="alternativas">
-          <v-radio-group v-model="radioGroup">
+          <v-radio-group>
             <v-radio
               v-for="n in 3"
               :key="n"
-              :label="`Radioaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa ${n}`"
+              :label="`Radioaaaaaaaaaaaaaaaaaaa${n}`"
               :value="n"
             ></v-radio>
           </v-radio-group>
-        </div>
 
         <v-bottom-navigation
         background-color="cyan"
-        dark
         class="bottom-nav"
-        color="black">
+        color="black"
+        absolute
+        grow
+        >
 
           <v-btn>
             <span>Anterior</span>
@@ -104,8 +104,8 @@ export default {
   display: inline-block;
   border: solid 1px #aaa;
 }
-.bottom-nav{
-  position: absolute;
-
+.v-input--radio-group__input{
+  width: 0 !important;
+  margin: 0 auto;
 }
 </style>
