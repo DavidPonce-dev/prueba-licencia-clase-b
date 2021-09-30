@@ -44,6 +44,13 @@
       >
       Prueba
       </v-btn>
+      
+      <v-btn
+        text
+        to="/admin"
+      >
+      Administracion
+      </v-btn>
 
       <v-spacer></v-spacer>
 
