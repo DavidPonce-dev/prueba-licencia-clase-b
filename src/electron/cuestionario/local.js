@@ -8,14 +8,13 @@ const leerListas = async () => {
   let dosPuntos = await leerArchivo("preguntas2.json");  
 
   //retorna un objeto con ambas listas en ella 
-  return {
+  return [
     unPunto,
     dosPuntos
-  }
+  ]
 }
 
-// eslint-disable-next-line no-unused-vars
-const crearCuestionario = async (evt) => {
+const crearCuestionario = async () => {
   //esta funcion genera un numero random entre 0.5 y -0.5, 
   //se utiliza para desordenar los rreglos en el metodo sort()
   const sortRand = () => 0.5 - Math.random()
@@ -37,8 +36,7 @@ const crearCuestionario = async (evt) => {
   ].sort(sortRand)
 };
 
-// eslint-disable-next-line no-unused-vars
-const setPregunta = async (evt, { pregunta, puntos = 1, indice, accion}) => {
+const setPregunta = async ({ pregunta, puntos = 1, indice, accion}) => {
   //cargamos una de las listas dependiendo de cuantos puntos tiene la pregunta
   const archivo = ["preguntas.json", "preguntas2.json"];
   const lista = await leerArchivo(archivo[puntos - 1]);
