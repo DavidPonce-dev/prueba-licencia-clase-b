@@ -21,6 +21,11 @@
             class="pa-5 overflow-y-auto"
             height="500px"
           >
+            <Pregunta
+              v-for="(pregunta, i) in listaPreguntas"
+              :pregunta="pregunta"
+              :key="i"
+            />
           </v-card>
         </v-card>
       </v-col>
@@ -32,7 +37,22 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
+import Pregunta from "../components/Admin.Pregunta";
 export default {
+  components: {
+    Pregunta,
+  },
+  computed: {
+    ...mapGetters("listaPreguntas", ["listaPreguntas"]),
+  },
+  methods: {
+    ...mapActions("listaPreguntas", ["loadLista"]),
+  },
+  mounted() {
+    this.loadLista();
+  },
 };
 </script>
 
