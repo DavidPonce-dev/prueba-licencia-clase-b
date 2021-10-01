@@ -6,11 +6,11 @@ let svc = localSvc;
 export default () => {
   const {
     crearCuestionario,
-    leerListas,
+    leerLista,
     setPregunta
   } = svc;
 
   ipcMain.handle("crearCuestionario", crearCuestionario);
-  ipcMain.handle("leerListas", leerListas);
+  ipcMain.handle("leerLista", leerLista);
   ipcMain.handle("setPregunta", setPregunta);
 };

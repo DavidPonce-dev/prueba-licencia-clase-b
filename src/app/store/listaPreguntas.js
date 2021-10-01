@@ -16,7 +16,7 @@ export default {
   actions: {
     loadLista: async ({ commit }) => {
       try {
-        const lista = await ipcRenderer.invoke("leerListas");
+        const lista = await ipcRenderer.invoke("leerLista");
         commit("setLista", lista);
       } catch (error) {
         throw new Error('Error obteniendo la lista de preguntas!')
